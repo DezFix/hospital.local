@@ -6,8 +6,8 @@
 	Diagnosis varchar(255),
 	Phone varchar(255),
     Address varchar(255),
-    City varchar(255),
+    DateOfBirth varchar(255),
 	Gender varchar(255),
 	Status varchar(255),
-	IdDoctor int
+	Id_Doctor int
 )";

@@ -12,7 +12,8 @@ class Main extends Model {
 		return $result;
 	}
 
-    public function addPersons ($FirstName,$LastName,$Diagnosis,$Phone,$Address,$City,$Gender,$Status,$IdDoctor){
+    public function addPersons ($FirstName,$LastName,$Diagnosis,$Phone,$Address,$DateOfBirth,$Gender,$Status,$IdDoctor){
+        var_dump($FirstName);
         $query = new Db();
         $query->query("INSERT INTO Persons (
                      \"firstname\",
@@ -20,7 +21,7 @@ class Main extends Model {
                      \"diagnosis\",
                      \"phone\",
                      \"address\",
-                     \"city\",
+                     \"DateOfBirth\",
                      \"gender\",
                      \"status\",
                      \"id_doctor\"
@@ -30,7 +31,7 @@ class Main extends Model {
                                '$Diagnosis',
                                '$Phone',
                                '$Address',
-                               '$City',
+                               '$DateOfBirth',
                                '$Gender',
                                '$Status',
                                '$IdDoctor'
