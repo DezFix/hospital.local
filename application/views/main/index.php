@@ -53,7 +53,7 @@ if ((!empty($_POST["firstname"])) and
     $person = new Main();
     $person->addPersons($_POST["firstname"],
         $_POST["lastname"],
-        ["diagnosis"],
+        $_POST["diagnosis"],
         $_POST["phone"],
         $_POST["address"],
         $_POST["city"],

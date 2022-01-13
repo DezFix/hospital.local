@@ -14,7 +14,27 @@ class Main extends Model {
 
     public function addPersons ($FirstName,$LastName,$Diagnosis,$Phone,$Address,$City,$Gender,$Status,$IdDoctor){
         $query = new Db();
-        $query->query("INSERT INTO Persons (\"firstname\", \"lastname\", \"diagnosis\", \"phone\", \"address\", \"city\", \"gender\", \"status\", \"id_doctor\") VALUES ('$FirstName','$LastName','$Diagnosis','$Phone','$Address','$City','$Gender','$Status','$IdDoctor')");
+        $query->query("INSERT INTO Persons (
+                     \"firstname\",
+                     \"lastname\",
+                     \"diagnosis\",
+                     \"phone\",
+                     \"address\",
+                     \"city\",
+                     \"gender\",
+                     \"status\",
+                     \"id_doctor\"
+                     ) VALUES (
+                               '$FirstName',
+                               '$LastName',
+                               '$Diagnosis',
+                               '$Phone',
+                               '$Address',
+                               '$City',
+                               '$Gender',
+                               '$Status',
+                               '$IdDoctor'
+                               )");
 
     }
 
