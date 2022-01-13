@@ -20,6 +20,7 @@ class Db {
 //				$stmt->bindValue(':'.$key, $val);
 //			}
 //		}
+        var_dump($stmt);
 		$stmt->execute();
 		return $stmt;
 	}
