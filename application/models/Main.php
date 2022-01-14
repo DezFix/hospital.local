@@ -21,7 +21,7 @@ class Main extends Model {
                      \"diagnosis\",
                      \"phone\",
                      \"address\",
-                     \"DateOfBirth\",
+                     \"dateofbirth\",
                      \"gender\",
                      \"status\",
                      \"id_doctor\"
