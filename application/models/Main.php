@@ -12,12 +12,11 @@ class Main extends Model {
 		return $result;
 	}
 
-    public function addPersons ($FirstName,$LastName,$Diagnosis,$Phone,$Address,$DateOfBirth,$Gender,$Status,$IdDoctor){
-        var_dump($FirstName);
+    public function addPersons ($person_name,$Diagnosis,$Phone,$Address,$dateofbirth,$Gender,$Status,$IdDoctor){
+        var_dump($person_name);
         $query = new Db();
         $query->query("INSERT INTO Persons (
-                     \"firstname\",
-                     \"lastname\",
+                     \"person_name\",
                      \"diagnosis\",
                      \"phone\",
                      \"address\",
@@ -26,12 +25,11 @@ class Main extends Model {
                      \"status\",
                      \"id_doctor\"
                      ) VALUES (
-                               '$FirstName',
-                               '$LastName',
+                               '$person_name',
                                '$Diagnosis',
                                '$Phone',
                                '$Address',
-                               '$DateOfBirth',
+                               '$dateofbirth',
                                '$Gender',
                                '$Status',
                                '$IdDoctor'
