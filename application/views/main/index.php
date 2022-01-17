@@ -1,9 +1,7 @@
 <p>Главная страница</p>
 <form method="post">
-    <label>Имя</label><br>
-    <input type="text" name="firstname"><br>
-    <label>Фамилия</label><br>
-    <input type="text" name="lastname"><br>
+    <label>ИФО</label><br>
+    <input type="text" name="person_name"><br>
     <label>Диагноз</label><br>
     <input type="text" name="diagnosis"><br>
     <label>Телефон</label><br>
@@ -29,8 +27,7 @@
 </form>
 <?php foreach ($persons as $val): ?>
 
-	<h3><?php echo $val["firstname"]; ?></h3>
-	<p><?php echo $val["lastname"]; ?></p>
+	<h3><?php echo $val["person_name"]; ?></h3>
 	<p><?php echo $val["diagnosis"]; ?></p>
 	<p><?php echo $val["phone"]; ?></p>
 	<p><?php echo $val["address"]; ?></p>
@@ -49,8 +46,7 @@ $diagnosis = array("Фарингіт", "Бронхіт", "Гастрит", "Хр
 $rand_keys = array_rand($diagnosis, 2);
 
 
-if ((!empty($_POST["firstname"])) and
-    (!empty($_POST["lastname"])) and
+if ((!empty($_POST["person_name"])) and
     (!empty($_POST["diagnosis"])) and
     (!empty($_POST["phone"])) and
     (!empty($_POST["address"])) and

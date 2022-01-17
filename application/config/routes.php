@@ -20,5 +20,21 @@ return [
 		'controller' => 'account',
 		'action' => 'register',
 	],
+
+    // me
+    'doctors' => [
+        'controller' => '-',
+        'action' => '-',
+    ],
+
+    'user' => [
+        'controller' => '-',
+        'action' => '-',
+    ],
+
+    'person' => [
+        'controller' => '-',
+        'action' => '-',
+    ],
 	
 ];
