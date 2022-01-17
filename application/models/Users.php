@@ -6,48 +6,45 @@ use application\core\Model;
 use application\lib\Db;
 
 class Users extends Model {
-                                             //login
+
     function login () {
-        ini_set ("session.use_trans_sid", true);
-        session_start();
-        if (isset($_SESSION['id']))//если сесcия есть
+        ini_set ("session.use_trans_sid", true);    session_start();    if (isset($_SESSION['id']))//если сесcия есть
 
         {
-            if(isset($_COOKIE['login']) && isset($_COOKIE['password'])) {
-                //если cookie есть, обновляется время их жизни и возвращается true
-                SetCookie("login", "", time() - 1, '/');
-                SetCookie("password", "", time() - 1, '/');
+            if(isset($_COOKIE['login']) && isset($_COOKIE['password'])) //если cookie есть, обновляется время их жизни и возвращается true
+                      {
+                SetCookie("login", "", time() - 1, '/');            SetCookie("password","", time() - 1, '/');
 
-                setcookie("login", $_COOKIE['login'], time() + 50000, '/');
+            setcookie ("login", $_COOKIE['login'], time() + 50000, '/');
 
-                setcookie("password", $_COOKIE['password'], time() + 50000, '/');
+            setcookie ("password", $_COOKIE['password'], time() + 50000, '/');
 
-                $id = $_SESSION['id'];
-                lastAct($id);
-                return true;
-            }
+            $id = $_SESSION['id'];
+            lastAct($id);
+            return true;
+
         }
         else //иначе добавляются cookie с логином и паролем, чтобы после перезапуска браузера сессия не слетала
         {
-            $rez = mysql_query("SELECT * FROM users WHERE id='{$_SESSION['id']}'"); //запрашивается строка с искомым id
-
-            if (mysql_num_rows($rez) == 1) //если получена одна строка
-             {
+            //$rez = mysql_query("SELECT * FROM users WHERE id='{$_SESSION['id']}'"); //запрашивается строка с искомым id
+            $rez = $this->db->query("SELECT * FROM users WHERE id='{$_SESSION['id']}'");
+            if (mysql_num_rows($rez) == 1)//если получена одна строка
+                          {
                 $row = mysql_fetch_assoc($rez); //она записывается в ассоциативный массив
 
-                setcookie ("login", $row['login'], time()+50000, '/');
+            setcookie ("login", $row['login'], time()+50000, '/');
 
-                setcookie ("password", md5($row['login'].$row['password']), time() + 50000, '/');
+            setcookie ("password", md5($row['login'].$row['password']), time() + 50000, '/');
 
-                $id = $_SESSION['id'];
-                lastAct($id);
-                return true;
+            $id = $_SESSION['id'];
+            lastAct($id);
+            return true;
 
-             }
-            else return false;
         }
-
-            else //если сессии нет, проверяется существование cookie. Если они существуют, проверяется их валидность по базе данных
+    else return false;
+    }
+}
+else //если сессии нет, проверяется существование cookie. Если они существуют, проверяется их валидность по базе данных
 {
     if(isset($_COOKIE['login']) && isset($_COOKIE['password'])) //если куки существуют
 
@@ -74,11 +71,11 @@ class Users extends Model {
         }
     }
     else //если куки не существуют
-        {
-         return false;
-        }
-}
+    {
+        return false;
     }
+}
+}
                                                    //enter
     function enter ()
     {
