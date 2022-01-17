@@ -28,7 +28,7 @@ class Users extends Model {
         {
             //$rez = mysql_query("SELECT * FROM users WHERE id='{$_SESSION['id']}'"); //запрашивается строка с искомым id
             $rez = $this->db->query("SELECT * FROM users WHERE id='{$_SESSION['id']}'");
-            if (mysql_num_rows($rez) == 1)//если получена одна строка
+            if ($this->db->row($rez) == 1)//если получена одна строка
                           {
                 $row = mysql_fetch_assoc($rez); //она записывается в ассоциативный массив
 
