@@ -30,7 +30,7 @@ class Users extends Model {
             $rez = $this->db->query("SELECT * FROM users WHERE id='{$_SESSION['id']}'");
             if ($this->db->row($rez) == 1)//если получена одна строка
                           {
-                $row = mysql_fetch_assoc($rez); //она записывается в ассоциативный массив
+                $row = $this->db->fetch($rez); //она записывается в ассоциативный массив
 
             setcookie ("login", $row['login'], time()+50000, '/');
 
