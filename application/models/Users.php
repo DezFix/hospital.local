@@ -6,7 +6,7 @@ use application\core\Model;
 use application\lib\Db;
 
 class Users extends Model {
-
+                                                            //login
     function login () {
         ini_set ("session.use_trans_sid", true);    session_start();    if (isset($_SESSION['id']))//если сесcия есть
 
@@ -28,7 +28,7 @@ class Users extends Model {
         {
             //$rez = mysql_query("SELECT * FROM users WHERE id='{$_SESSION['id']}'"); //запрашивается строка с искомым id
             $rez = $this->db->query("SELECT * FROM users WHERE id='{$_SESSION['id']}'");
-            if ($this->db->row($rez) == 1)//если получена одна строка
+            if ($this->db->row($rez) == 1) //если получена одна строка
                           {
                 $row = $this->db->fetch($rez); //она записывается в ассоциативный массив
 
@@ -49,10 +49,10 @@ else //если сессии нет, проверяется существова
     if(isset($_COOKIE['login']) && isset($_COOKIE['password'])) //если куки существуют
 
     {
-        $rez = mysql_query("SELECT * FROM users WHERE login='{$_COOKIE['login']}'"); //запрашивается строка с искомым логином и паролем
-        @$row = mysql_fetch_assoc($rez);
+        $rez = $this->db->query("SELECT * FROM users WHERE login='{$_COOKIE['login']}'"); //запрашивается строка с искомым логином и паролем
+        @$row = $this->db->fetch($rez);
 
-        if(@mysql_num_rows($rez) == 1 && md5($row['login'].$row['password']) == $_COOKIE['password']) //если логин и пароль нашлись в базе данных
+        if(@$row($rez) == 1 && md5($row['login'].$row['password']) == $_COOKIE['password']) //если логин и пароль нашлись в базе данных
 
         {
             $_SESSION['id'] = $row['id']; //записываем в сесиию id
@@ -86,11 +86,11 @@ else //если сессии нет, проверяется существова
             $login = $_POST['login'];
             $password = $_POST['password'];
 
-            $rez = mysql_query("SELECT * FROM users WHERE login=$login"); //запрашивается строка из базы данных с логином, введённым пользователем
-            if (mysql_num_rows($rez) == 1) //если нашлась одна строка, значит такой юзер существует в базе данных
+            $rez = $this->db->query("SELECT * FROM users WHERE login=$login"); //запрашивается строка из базы данных с логином, введённым пользователем
+            if ($this->db->fetch($rez) == 1) //если нашлась одна строка, значит такой юзер существует в базе данных
 
             {
-                $row = mysql_fetch_assoc($rez);
+                $row = $this->db->fetch($rez);
                 if (md5(md5($password).$row['salt']) == $row['password']) //сравнивается хэшированный пароль из базы данных с хэшированными паролем, введённым пользователем
 
                 {
@@ -118,7 +118,6 @@ else //если сессии нет, проверяется существова
             }
         }
 
-
         else
         {
             $error[] = "Поля не должны быть пустыми!";
@@ -128,11 +127,11 @@ else //если сессии нет, проверяется существова
     }
                                                               //admin
     function is_admin($id) {
-        @$rez = mysql_query("SELECT prava FROM users WHERE id='$id'");
+        @$rez = $this->db->query("SELECT prava FROM users WHERE id='$id'");
 
-        if (mysql_num_rows($rez) == 1)
+        if ($this->db->fetch($rez) == 1)
         {
-            $prava = mysql_result($rez, 0);
+            $prava = $this->db->fetch($rez, 0);
 
             if ($prava == 1) return true;
             else return false;
@@ -145,7 +144,7 @@ else //если сессии нет, проверяется существова
         session_start();
         $id = $_SESSION['id'];
 
-        mysql_query("UPDATE users SET online=0 WHERE id='$id'"); //обнуляется поле online, говорящее, что пользователь вышел с сайта (пригодится в будущем)
+        $this->db->query("UPDATE users SET online=0 WHERE id='$id'"); //обнуляется поле online, говорящее, что пользователь вышел с сайта (пригодится в будущем)
         unset($_SESSION['id']); //удалятся переменная сессии
         SetCookie("login", ""); //удаляются cookie с логином
 

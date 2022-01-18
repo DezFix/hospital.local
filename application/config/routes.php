@@ -28,8 +28,8 @@ return [
     ],
 
     'user' => [
-        'controller' => '-',
-        'action' => '-',
+        'controller' => 'models',
+        'action' => 'Users',
     ],
 
     'person' => [
