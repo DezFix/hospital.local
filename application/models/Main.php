@@ -37,6 +37,11 @@ class Main extends Model {
 
     }
 
+    public function qwery ($sql){
+        $query = new Db();
+        $query->query ($sql);
+    }
+
 
 
 }

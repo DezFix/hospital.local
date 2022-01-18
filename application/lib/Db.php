@@ -20,7 +20,7 @@ class Db {
 				$stmt->bindValue(':'.$key, $val);
 			}
 		}
-        echo "<h3>$stmt->queryString</h3>";
+//        echo "<h3>$stmt->queryString</h3>";
 		$stmt->execute();
 		return $stmt;
 	}
