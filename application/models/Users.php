@@ -6,6 +6,11 @@ use application\core\Model;
 use application\lib\Db;
 
 class Users extends Model {
+
+    public function register ($login, $password){
+       $result = $this->db->query("insert into public.users(login,password)values('$login','$password')");
+        return $result;
+    }
                                                             //login
     function login () {
         ini_set ("session.use_trans_sid", true);    session_start();    if (isset($_SESSION['id']))//если сесcия есть
