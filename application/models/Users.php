@@ -13,7 +13,9 @@ class Users extends Model {
         {
             if(isset($_COOKIE['login']) && isset($_COOKIE['password'])) //если cookie есть, обновляется время их жизни и возвращается true
                       {
-                SetCookie("login", "", time() - 1, '/');            SetCookie("password","", time() - 1, '/');
+            setCookie("login", "", time() - 1, '/');
+
+            setCookie("password","", time() - 1, '/');
 
             setcookie ("login", $_COOKIE['login'], time() + 50000, '/');
 
