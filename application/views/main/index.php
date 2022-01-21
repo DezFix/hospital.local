@@ -84,7 +84,5 @@ if (!empty($_POST["random"])) {
 //    echo "Стать: " . $gender . "<br>";
 //    echo "На лікуванні" . "+" . "<br>";
 //    echo "ID доктора" . 1 . "<br>";
-    echo 1;
-//    $qwery = new Main();
-//    $qwery->qwery("
+
 }
