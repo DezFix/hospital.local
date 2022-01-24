@@ -27,6 +27,7 @@ class Db {
 
 	public function fetch($sql, $params = []) {
 		$result = $this->query($sql, $params);
+		var_dump($result->fetch(PDO::FETCH_ASSOC));
 		return $result->fetch(PDO::FETCH_ASSOC);
 	}
     public function row($sql, $params = []) {

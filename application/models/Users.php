@@ -35,7 +35,7 @@ class Users extends Model {
         {
             //$rez = mysql_query("SELECT * FROM users WHERE id='{$_SESSION['id']}'"); //запрашивается строка с искомым id
             $rez = $this->db->query("SELECT * FROM users WHERE id='{$_SESSION['id']}'");
-            if ($this->db->row($rez) == 1) //если получена одна строка
+            if ($this->db->fetch($rez) == 1) //если получена одна строка
                           {
                 $row = $this->db->fetch($rez); //она записывается в ассоциативный массив
 
@@ -56,7 +56,7 @@ else //если сессии нет, проверяется существова
     if(isset($_COOKIE['login']) && isset($_COOKIE['password'])) //если куки существуют
 
     {
-        $rez = $this->db->query("SELECT * FROM users WHERE login='{$_COOKIE['login']}'"); //запрашивается строка с искомым логином и паролем
+        $rez = $this->db->query("SELECT 1 FROM users WHERE login='{$_COOKIE['login']}'"); //запрашивается строка с искомым логином и паролем
         @$row = $this->db->fetch($rez);
 
         if(@$row($rez) == 1 && md5($row['login'].$row['password']) == $_COOKIE['password']) //если логин и пароль нашлись в базе данных
@@ -93,7 +93,7 @@ else //если сессии нет, проверяется существова
             $login = $_POST['login'];
             $password = $_POST['password'];
 
-            $rez = $this->db->query("SELECT * FROM users WHERE login=$login;"); //запрашивается строка из базы данных с логином, введённым пользователем
+            $rez = $this->db->query("SELECT 1 FROM users WHERE login='$login'"); //запрашивается строка из базы данных с логином, введённым пользователем
             if ($this->db->fetch($rez) == 1) //если нашлась одна строка, значит такой юзер существует в базе данных
 
             {
