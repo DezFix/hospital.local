@@ -6,7 +6,7 @@ use application\core\Model;
 use application\lib\Db;
 
 class Users extends Model {
-
+                                                    //register
     public function register ($login, $password){
        $result = $this->db->query("insert into public.users(login,password)values('$login','$password')");
         return $result;

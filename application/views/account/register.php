@@ -12,8 +12,6 @@ use application\models\Main;
 
 if (isset($_POST["login"]) and isset($_POST["password"])){
 $register = new Users();
-$register->register($_POST["login"], $_POST["password"]);
+    $pdw = $register->register( $_POST["login"], password_hash( $_POST["password"], PASSWORD_DEFAULT));
 
 }
-
-
