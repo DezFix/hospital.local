@@ -6,6 +6,10 @@ return [
 		'controller' => 'main',
 		'action' => 'index',
 	],
+    'sql' => [
+        'controller' => 'main',
+        'action' => 'sql',
+    ],
     [
         'controller' => 'add',
         'action' => 'add',
@@ -35,6 +39,6 @@ return [
     'person' => [
         'controller' => '-',
         'action' => '-',
-    ],
-	
+    ]
+
 ];

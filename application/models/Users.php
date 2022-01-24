@@ -84,7 +84,7 @@ else //если сессии нет, проверяется существова
 }
 }
                                                    //enter
-    function enter ()
+    public function enter ()
     {
         $error = array(); //массив для ошибок
         if ($_POST['login'] != "" && $_POST['password'] != "") //если поля заполнены
@@ -93,7 +93,7 @@ else //если сессии нет, проверяется существова
             $login = $_POST['login'];
             $password = $_POST['password'];
 
-            $rez = $this->db->query("SELECT * FROM users WHERE login=$login"); //запрашивается строка из базы данных с логином, введённым пользователем
+            $rez = $this->db->query("SELECT * FROM users WHERE login=$login;"); //запрашивается строка из базы данных с логином, введённым пользователем
             if ($this->db->fetch($rez) == 1) //если нашлась одна строка, значит такой юзер существует в базе данных
 
             {

@@ -15,5 +15,13 @@ class MainController extends Controller
         ];
         $this->view->render('Главная страница', $vars);
     }
+    public function sqlAction()
+    {
+        $result = $this->model->getPersons();
+        $vars = [
+            'persons' => $result,
+        ];
+        $this->view->render('sql', $vars);
+    }
 
 }
