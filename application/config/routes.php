@@ -19,6 +19,10 @@ return [
 		'controller' => 'account',
 		'action' => 'login',
 	],
+    'account/out' => [
+        'controller' => 'account',
+        'action' => 'out',
+    ],
 
 	'account/register' => [
 		'controller' => 'account',

@@ -1,50 +1,48 @@
-<h3>Вход</h3>
-<form action="/account/login" method="post">
-	<p>Логин</p>
-	<p><input type="text" name="login"></p>
-	<p>Пароль</p>
-	<p><input type="text" name="password"></p>
-	<b><button type="submit" name="log_in">Вход</button></b>
-</form>
+
 
 <?php
 
+
+
 use application\models\Users;
 use application\models\Main;
+$user = new Users();
+var_dump($_GET['action']);
+if(isset($_GET['action']) and $_GET['action'] == "out") {
+    $user->out(); //если передана переменная action, «разавторизируем» пользователя
+}
 
-//if (isset($_POST["login"]) and isset($_POST["password"])){
-//    echo $_POST["login"];
-//    echo $_POST["password"];
-//    $login = new Users();
-//    $login->enter($_POST["login"], $_POST["password"]);
-//}
-
-$login=new Users();
-
-if ($login->login()) //вызываем функцию login, которая определяет, авторизирован пользователь или нет
+if ($user->login()) //вызываем функцию login, которая определяет, авторизирован пользователь или нет
 
 {
     $UID = $_SESSION['id']; //если пользователь авторизирован, присваиваем переменной $UID его id
-    $admin = is_admin($UID); //определяем, админ ли пользователь
+    $admin = $user->is_admin($UID); //определяем, админ ли пользователь
 
 }
 else //если пользователь не авторизирован, проверяем, была ли нажата кнопка входа на сайт
 {
     if(isset($_POST['log_in']))
     {
-        $error = $login->enter(); //функция входа на сайт
+        $error = $user->enter(); //функция входа на сайт
 
         if (count($error) == 0) //если ошибки отсутствуют, авторизируем пользователя
         {
             $UID = $_SESSION['id'];
 
-            $admin = is_admin($UID);
-            include ('index.php'); //подключается файл с формой
-            header("Location: http://hospital");
-            exit;
+            $admin = $user->is_admin($UID);
         }
-        else print $error;
     }
 }
-
+if (isset($_SESSION['id'])){
+    echo "Залогинен" . $_SESSION['id'];
+}
 ?>
+
+    <form method="post">
+
+        Логин: <input type="text" name="login" />
+        Пароль: <input type="password" name="password" />
+
+        <input type="submit" value="Войти" name="log_in" />
+    </form>
+
