@@ -27,22 +27,12 @@ class Users extends Model
     {
         $config = require 'application/config/db.php';
         $pepper = $config['pepper'];
-
-
         $result = $this->db->row("SELECT * from users WHERE login = '$user'");
 
-
-        $users = $result[0]["login"];
-        $pass = $result[0]["password"];
-        $pwd_peppered2 = hash_hmac("sha256", $password, $pepper);
-            if (password_verify($pwd_peppered2, $pass)) {
-                echo "Password matches.";
-            }
-            else {
-                echo "Password incorrect.";
-            }
-
-        if ($_POST['submit']) {
+            if (!empty($result[0]["login"])){
+                $users = $result[0]["login"];
+                $pass = $result[0]["password"];
+                $pwd_peppered2 = hash_hmac("sha256", $password, $pepper);
             if (password_verify($pwd_peppered2, $pass)) {
                 session_start();
                 $_SESSION['admin'] = $users;
@@ -50,6 +40,9 @@ class Users extends Model
                 exit;
             } else echo '<p>Логин или пароль неверны!</p>';
         }
+            else {
+                echo '<p>Нет такого логина!</p>';
+            }
         }
 
 
