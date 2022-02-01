@@ -1,8 +1,8 @@
 <p>Главная страница</p>
 
 <?php
-if (isset($_SESSION['admin'])){
-    echo "Привет: " . $_SESSION['admin'] . "<br>";
+if (isset($_SESSION['authorize']['id'] )){
+    echo "Привет: " . $_SESSION['user'] . "<br>";
     echo "<a href=\"/account/out\"><button>Выход</button></a>";
 }
 else

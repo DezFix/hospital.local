@@ -35,7 +35,8 @@ class Users extends Model
                 $pwd_peppered2 = hash_hmac("sha256", $password, $pepper);
             if (password_verify($pwd_peppered2, $pass)) {
                 session_start();
-                $_SESSION['admin'] = $users;
+                $_SESSION['authorize']['id'] = $result[0]["id"];
+                $_SESSION['user'] = $result[0]["login"];
                 header("Location: /");
                 exit;
             } else echo '<p>Логин или пароль неверны!</p>';
@@ -50,7 +51,7 @@ class Users extends Model
     //out
     function out()
     {
-        unset($_SESSION['admin']);
+        //unset($_SESSION['admin']);
         session_destroy();
         header("Location: /account/login");
     }
