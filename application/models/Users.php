@@ -12,16 +12,19 @@ class Users extends Model
     //register
     public function register($login, $password)
     {
-        $result = $this->db->query("insert into users (login,password)values('$login','$password')");
+        $result = $this->db->query("insert into users (login,password)values('$login','" . md5($password) . "')");
         return $result;
     }
 
     //login
     function login($user, $password)
     {
-
-        $users = 'admin';
+        $result = $this->db->row("SELECT * from users WHERE login = '$user' AND password = '$password'");
+        var_dump($result[0]["login"]);
+        $users = $result[0]["login"];
         $pass = '21232f297a57a5a743894a0e4a801fc3';
+
+
         if ($_POST['submit']) {
             if ($users == $user and $pass == md5($password)) {
                 session_start();
