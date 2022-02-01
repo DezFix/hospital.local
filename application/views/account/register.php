@@ -27,7 +27,7 @@ elseif (empty($_POST["password"]) and isset($_POST["but"]))
 elseif (isset($_POST["login"]) and isset($_POST["password"]))
 {
 $register = new Users();
-    $pdw = $register->register( $_POST["login"], password_hash( $_POST["password"], PASSWORD_DEFAULT));
+    $pdw = $register->register($_POST["login"], $_POST["password"]);
     var_dump($_POST["login"]);
 }
 

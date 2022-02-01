@@ -5,4 +5,5 @@ return [
 	'name' => 'hospital',
 	'user' => 'postgres',
 	'password' => '123',
+    'pepper' => 'c1isvFdxMDdmjOlvxpecFw',
 ];

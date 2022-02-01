@@ -21,6 +21,17 @@ if (isset($_SESSION['admin'])){
     echo "<a href=\"/account/out\"><button>Выход</button></a>";
 }
 
+
+
+
+
+
+
+
+
+
+
+
 ?>
 
 
