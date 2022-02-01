@@ -16,7 +16,9 @@ if(isset($_GET['do']) and $_GET['do'] == 'logout'){
 }
 
 if (isset($_SESSION['admin'])){
-    echo "Привет" . $_SESSION['admin'];
+    echo "Привет: " . $_SESSION['admin'] . "<br>";
+
+    echo "<a href=\"/account/out\"><button>Выход</button></a>";
 }
 
 ?>
@@ -24,10 +26,11 @@ if (isset($_SESSION['admin'])){
 
 
 <br />
-<form method="post">
-Username: <input type="text" name="user" /> <br />
-Password: <input type="password" name="pass" /> <br />
-<input type="submit" name="submit" value="Login" />
-</form>
+<form  method="post">
+    <p>Логин</p>
+    <p><input type="text" name="user"></p>
+    <p>Пароль</p>
+    <p><input type="password" name="pass"></p>
+    <b><input type="submit" name="submit" value="Login" /></b>
+</form><br />
 
-<a href="/account/out"><button>Выход</button></a>

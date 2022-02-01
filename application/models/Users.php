@@ -19,12 +19,12 @@ class Users extends Model
     //login
     function login($user, $password)
     {
-        session_start();
-        $users = 'user';
+
+        $users = 'admin';
         $pass = '21232f297a57a5a743894a0e4a801fc3';
-        echo md5('admin');
         if ($_POST['submit']) {
             if ($users == $user and $pass == md5($password)) {
+                session_start();
                 $_SESSION['admin'] = $users;
                 header("Location: /account/login");
                 exit;
