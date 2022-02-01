@@ -26,7 +26,7 @@ class Users extends Model
             if ($users == $user and $pass == md5($password)) {
                 session_start();
                 $_SESSION['admin'] = $users;
-                header("Location: /account/login");
+                header("Location: /");
                 exit;
             } else echo '<p>Логин или пароль неверны!</p>';
         }
