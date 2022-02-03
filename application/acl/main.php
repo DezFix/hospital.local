@@ -3,7 +3,8 @@
 return [
 	'all' => [
 		'index',
-        'sql'
+        'sql',
+         'doctor',
 	],
 	'authorize' => [
 		//

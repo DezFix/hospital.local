@@ -30,9 +30,9 @@ return [
 	],
 
     // me
-    'doctors' => [
-        'controller' => '-',
-        'action' => '-',
+    'doctor' => [
+        'controller' => 'doctor',
+        'action' => 'index',
     ],
 
     'user' => [

@@ -11,7 +11,7 @@
         <div class="logo"><a href="/">Hell<span class="black">Fire</span><span class="gray">.net</span></a><p>Welcome to Hell</p></div>
         <ul class="nav">
             <li><a href="/" class="active">Home</a></li>
-            <li><a href="#">test</a></li>
+            <li><a href="/doctor">Доктора</a></li>
             <li><a href="#">test</a></li>
             <li><a href="#">test</a></li>
             <li><a href="#">test</a></li>
