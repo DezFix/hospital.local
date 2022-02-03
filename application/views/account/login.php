@@ -1,8 +1,15 @@
+<h1 class="login"> Вход</h1>
+<form method="post" class="login">
+    <h3>Логин</h3>
+    <p><input name="login"></p>
+    <h3>Пароль</h3>
+    <p><input name="password"></p>
+    <b><button name="but">Вход</button></b>
+
+</form>
 
 
 <?php
-
-
 
 use application\models\Users;
 
@@ -21,27 +28,4 @@ if (isset(['authorize']['id'])){
     echo "<a href=\"/account/out\"><button>Выход</button></a>";
 }
 
-
-
-
-
-
-
-
-
-
-
-
 ?>
-
-
-
-<br />
-<form  method="post">
-    <p>Логин</p>
-    <p><input type="text" name="user"></p>
-    <p>Пароль</p>
-    <p><input type="password" name="pass"></p>
-    <b><input type="submit" name="submit" value="Login" /></b>
-</form><br />
-

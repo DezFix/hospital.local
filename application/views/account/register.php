@@ -1,8 +1,8 @@
-<h3>Регистрация</h3>
-<form method="post">
-	<p>Логин</p>
+<h1 class="login">Регистрация</h1>
+<form method="post" class="login">
+	<h3>Логин</h3>
 	<p><input name="login"></p>
-	<p>Пароль</p>
+	<h3>Пароль</h3>
 	<p><input name="password"></p>
 	<b><button name="but">Регистрация</button></b>
 </form>

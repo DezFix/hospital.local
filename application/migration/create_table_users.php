@@ -7,8 +7,3 @@ DoctorId varchar(255),
 
 CONSTRAINT login UNIQUE(login)
 )
-
-
-CONSTRAINT login
-PRIMARY KEY (login) ( >= 3 )
-UNIQUE(login)

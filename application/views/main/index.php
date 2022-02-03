@@ -1,16 +1,144 @@
-<!--<p>Главная страница</p>-->
-<!---->
+<div class="content">
+    <div class="rightCol">
+        <ul class="rightNav">
+            <li><a href="#">Natus error sit voluptatem</a></li>
+            <li><a href="#">Et veritatis quasi</a></li>
+            <li><a href="#">Vitae dicta sunt explicabo</a></li>
+            <li><a href="#">Nectun sed quia conseq</a></li>
+            <li><a href="#">Natus error sit voluptatem</a></li>
+            <li><a href="#">Vitae dicta sunt explicabo</a></li>
+            <li><a href="#">Et veritatis quasi</a></li>
+            <li><a href="#">Nectun sed quia conseq</a></li>
+            <li><a href="#">Natus error sit voluptatem</a></li>
+            <li><a href="#">Vitae dicta sunt explicabo</a></li>
+        </ul>
+        <div class="block">
+            <h3>Lorem ipsum dolor sit</h3>
+            <p><i>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</i></p>
+            <p><a href="#" class="more">Read more »</a></p>
+        </div>
+    </div>
+    <div class="main">
+        <h1>What we do</h1>
+        <p>Lorem ipsum dolor sit amet, <a href="#" title="link">consectetur adipisicing elit</a>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in <b title="bold">reprehenderit in voluptate velit</b> esse cillum dolore eu fugiat nulla pariatur. <i title="italic">Excepteur sint occaecat</i> cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+        <!--Изображения-->
+        <h2>Images</h2>
+        <p><img src="/public/images/img1.jpg"><img src="/public/images/img2.jpg"><img src="/public/images/img3.jpg"></p>
+        <!--Списки и определения-->
+        <h2>Lists and Descriptions</h2>
+        <div class="row">
+            <div class="col">
+                <ul>
+                    <li>Sed ut perspiciatis unde omnis iste</li>
+                    <li>Lorem ipsum dolor sit amet</li>
+                    <li>At vero eos et accusamus et iusto</li>
+                    <li>Et harum quidem rerum facilis</li>
+                </ul>
+            </div>
+            <div class="col">
+                <ol>
+                    <li>Sed ut perspiciatis unde omnis iste</li>
+                    <li>Lorem ipsum dolor sit amet</li>
+                    <li>At vero eos et accusamus et iusto</li>
+                    <li>Et harum quidem rerum facilis</li>
+                </ol>
+            </div>
+            <div class="col">
+                <dl>
+                    <dt>Sed ut perspiciatis unde omnis iste</dt>
+                    <dd>Lorem ipsum dolor sit amet</dd>
+                    <dt>At vero eos et accusamus et iusto</dt>
+                    <dd>Et harum quidem rerum facilis</dd>
+                </dl>
+            </div>
+        </div>
+        <!--Таблица-->
+        <h2>Table</h2>
+        <table class="bordered">
+            <thead>
+            <tr>
+                <th>Purcus</th>
+                <th>Hantis</th>
+                <th>Mastron</th>
+                <th>Jevicon</th>
+                <th>Language</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Gitsome</td>
+                <td>Some one</td>
+                <td>Take mose</td>
+                <td>Likbes</td>
+                <td>Racounter</td>
+            </tr>
+            <tr>
+                <td>Linkage</td>
+                <td>Fordor</td>
+                <td>Miad ron me</td>
+                <td>Diablo core</td>
+                <td>Tidbade</td>
+            </tr>
+            <tr>
+                <td>Hicura</td>
+                <td>Warecom</td>
+                <td>Xamicon</td>
+                <td>Yamama</td>
+                <td>Udoricano</td>
+            </tr>
+            <tr>
+                <td>Lavistaro</td>
+                <td>Micanorta</td>
+                <td>Ebloconte ma</td>
+                <td>Quad ri port</td>
+                <td>Timesquer</td>
+            </tr>
+            </tbody>
+        </table>
+        <!--Формы-->
+        <h2>Forms</h2>
+        <form>
+            <div class="row">
+                <label>Text:</label>
+                <input type="text" placeholder="Input type text">
+            </div>
+            <div class="row">
+                <label>Select:</label>
+                <select>
+                    <option>Option</option>
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                </select>
+            </div>
+            <div class="row">
+                <label><input type="checkbox">Sed ut perspiciatis unde omnis iste natus</label>
+                <label><input type="radio" name="radiobutton" value="radiobutton">Lorem ipsum dolor sit amet, consectetur</label>
+            </div>
+            <div class="row">
+                <label>Textarea:</label>
+                <textarea></textarea>
+            </div>
+            <div class="row">
+                <button type="submit">Button</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
 <?php
-//if (isset($_SESSION['authorize']['id'] )){
-//    echo "Привет: " . $_SESSION['user'] . "<br>";
-//    echo "<a href=\"/account/out\"><button>Выход</button></a>";
-//}
-//else
-//{
-//    echo '<a href="/account/login"><button>Вход</button></a>';
-//}
-//
-//?>
+if (isset($_SESSION['authorize']['id'] )){
+    echo "Привет: " . $_SESSION['user'] . "<br>";
+    echo "<a href=\"/account/out\"><button>Выход</button></a>";
+}
+else
+{
+    echo '<a href="/account/login"><button>Вход</button></a>';
+}
+
+?>
+
 <!--<form method="post">-->
 <!--    <label>ИФО</label><br>-->
 <!--    <input type="text" name="person_name"><br>-->
@@ -50,72 +178,7 @@
 <!--	<hr>-->
 <?php //endforeach; ?>
 
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test</title>
-    <meta name="description" content="A sidebar menu as seen on the Google Nexus 7 website" />
-    <meta name="keywords" content="google nexus 7 menu, css transitions, sidebar, side menu, slide out menu" />
-    <meta name="author" content="Codrops" />
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" type="text/css" href="public/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="public/css/demo.css" />
-    <link rel="stylesheet" type="text/css" href="public/css/component.css" />
-    <script src="public/js/modernizr.custom.js"></script>
-</head>
-<body>
-<div class="container">
-    <ul id="gn-menu" class="gn-menu-main">
-        <li class="gn-trigger">
-            <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
-            <nav class="gn-menu-wrapper">
-                <div class="gn-scroller">
-                    <ul class="gn-menu">
-                        <li class="gn-search-item">
-                            <input placeholder="Search" type="search" class="gn-search">
-                            <a class="gn-icon gn-icon-search"><span>Search</span></a>
-                        </li>
-                        <li>
-                            <a class="gn-icon gn-icon-download">Downloads</a>
-                            <ul class="gn-submenu">
-                                <li><a class="gn-icon gn-icon-illustrator">Vector Illustrations</a></li>
-                                <li><a class="gn-icon gn-icon-photoshop">Photoshop files</a></li>
-                            </ul>
-                        </li>
-                        <li><a class="gn-icon gn-icon-cog">Settings</a></li>
-                        <li><a class="gn-icon gn-icon-help">Help</a></li>
-                        <li>
-                            <a class="gn-icon gn-icon-archive">Archives</a>
-                            <ul class="gn-submenu">
-                                <li><a class="gn-icon gn-icon-article">Articles</a></li>
-                                <li><a class="gn-icon gn-icon-pictures">Images</a></li>
-                                <li><a class="gn-icon gn-icon-videos">Videos</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div><!-- /gn-scroller -->
-            </nav>
-        </li>
-        <li><a href="----------">test</a></li>
-        <li><a class="codrops-icon codrops-icon-prev" href="-----------"><span>go</span></a></li>
-        <li><a class="codrops-icon codrops-icon-drop" href="-----------"><span>Sin</span></a></li>
-        <li><a class="codrops-icon codrops-icon-drop" href="-----------"><span>Login</span></a></li>
 
-    </ul>
-    <header>
-        <h1>Test <span>Test <a href="">Test</a> gg</span></h1>
-    </header>
-</div><!-- /container -->
-<script src="public/js/classie.js"></script>
-<script src="public/js/gnmenu.js"></script>
-<script>
-    new gnMenu( document.getElementById( 'gn-menu' ) );
-</script>
-</body>
-</html>
 
 <?php
 use application\models\Main;
