@@ -5,6 +5,7 @@
     <h3>Пароль</h3>
     <p><input name="password"></p>
     <b><button name="but">Вход</button></b>
+    <b><button name="but">Выход</button></b>
 
 </form>
 
