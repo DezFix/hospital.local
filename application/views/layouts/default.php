@@ -10,13 +10,27 @@
     <div class="header">
         <div class="logo"><a href="/">Hell<span class="black">Fire</span><span class="gray">.net</span></a><p>Welcome to Hell</p></div>
         <ul class="nav">
+
+
             <li><a href="/" class="active">Home</a></li>
+
             <li><a href="/doctor">Доктора</a></li>
+
+            <li><a href="/person">Пользователь</a></li>
+
             <li><a href="#">test</a></li>
+
             <li><a href="#">test</a></li>
-            <li><a href="#">test</a></li>
-            <li><a href="/account/login">Вход</a></li>
-            <li><a href="/account/out">!</a></li>
+
+<?php
+            if (isset($_SESSION['authorize']['id'])){
+                echo  '<li><a href="/account/out">Exit</a></li>';
+            }
+            else{
+                echo  '<li><a href="/account/login">Вход</a></li>';
+
+            }
+?>
 
 </div>
 <?php echo $content; ?>

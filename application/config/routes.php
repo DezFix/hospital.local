@@ -41,8 +41,8 @@ return [
     ],
 
     'person' => [
-        'controller' => '-',
-        'action' => '-',
+        'controller' => 'person',
+        'action' => 'index',
     ]
 
 ];
