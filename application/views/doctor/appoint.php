@@ -10,10 +10,10 @@
     <h3>ID доктора:</h3>
     <input type="text" name="id_doctor"></br>
     </br>
-    <input type="submit" name="but"></br>
+    <input type="submit" name="EnterRequest"></br>
 </form>
 
-
+<!--<b><button type="submit" name="EnterRequest">Отправить</button></b>-->
 <?php
 use application\core\Model;
 use application\lib\db;

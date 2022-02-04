@@ -8,6 +8,8 @@ return [
         //
         'index',
         'out',
+        'cards',
+        'appoint',
     ],
     'guest' => [
         //
