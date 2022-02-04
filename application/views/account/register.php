@@ -4,7 +4,7 @@
 	<p><input name="login"></p>
 	<h3>Пароль</h3>
 	<p><input name="password"></p>
-	<b><button name="but">Регистрация</button></b>
+	<b><button name="submit">Регистрация</button></b>
 </form>
 <?php
 use application\models\Users;

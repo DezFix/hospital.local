@@ -55,10 +55,4 @@ if(isset($_GET['do']) and $_GET['do'] == 'logout'){
     $user->out();
 }
 
-if (isset(['authorize']['id'])){
-    echo "Привет: " . $_SESSION['user'] . "<br>";
-
-    echo "<a href=\"/account/out\"><button>Выход</button></a>";
-}
-
 ?>

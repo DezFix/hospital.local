@@ -14,19 +14,20 @@
 
             <li><a href="/" class="active">Home</a></li>
 
-            <li><a href="/doctor">Док</a></li>
+            <li><a href="../person">Поль</a></li>
 
-            <li><a href="/person">Поль</a></li>
+            <li><a href="../account/register">reg</a></li>
 
+            <li><a href="/sql">SQL</a></li>
 <?php
 
             if (isset($_SESSION['authorize']['id'])){
             echo '<li><a href="#">Записи на Прием</a></li>';
             echo '<li><a href="#">Карты Пациентов</a></li>';
-            echo  '<li><a href="/account/out">Exit</a></li>';
+            echo  '<li><a href="../account/out">Exit</a></li>';
             }
             else{
-                echo  '<li><a href="/account/login">Вход</a></li>';
+                echo  '<li><a href="../account/login">Вход</a></li>';
 
             }
 ?>
@@ -49,10 +50,5 @@ if(isset($_GET['do']) and $_GET['do'] == 'logout'){
     $user->out();
 }
 
-if (isset(['authorize']['id'])){
-    echo "Привет: " . $_SESSION['user'] . "<br>";
-
-    echo "<a href=\"/doctor\"><button>Выход</button></a>";
-}
 
 ?>

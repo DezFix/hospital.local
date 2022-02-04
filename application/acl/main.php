@@ -3,14 +3,16 @@
 return [
 	'all' => [
 		'index',
-        'sql',
          'doctor',
+        'register',
+        'sql',
+
 	],
 	'authorize' => [
 		//
 	],
 	'guest' => [
-		//
+        'sql',
 	],
 	'admin' => [
 		//
