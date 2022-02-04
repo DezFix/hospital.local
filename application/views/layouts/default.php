@@ -39,7 +39,7 @@ if(isset($_GET['do']) and $_GET['do'] == 'logout'){
 if (isset(['authorize']['id'])){
     echo "Привет: " . $_SESSION['user'] . "<br>";
 
-    echo "<a href=\"/account/out\"><button>Выход</button></a>";
+    echo "<a href=\"/doctor\"><button>Выход</button></a>";
 }
 
 ?>

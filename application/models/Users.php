@@ -30,14 +30,14 @@ class Users extends Model
         $result = $this->db->row("SELECT * from users WHERE login = '$user'");
 
             if (!empty($result[0]["login"])){
-                $users = $result[0]["login"];
+                //$users = $result[0]["login"];
                 $pass = $result[0]["password"];
                 $pwd_peppered2 = hash_hmac("sha256", $password, $pepper);
             if (password_verify($pwd_peppered2, $pass)) {
                 session_start();
                 $_SESSION['authorize']['id'] = $result[0]["id"];
                 $_SESSION['user'] = $result[0]["login"];
-                header("Location: /");
+                header("Location: /doctor");
                 exit;
             } else echo '<p>Логин или пароль неверны!</p>';
         }
@@ -53,7 +53,7 @@ class Users extends Model
     {
         //unset($_SESSION['admin']);
         session_destroy();
-        header("Location: /main/index");
+        header("Location: /out");
     }
 }
 
