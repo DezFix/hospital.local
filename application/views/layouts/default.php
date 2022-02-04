@@ -14,17 +14,16 @@
 
             <li><a href="/" class="active">Home</a></li>
 
-            <li><a href="/doctor">Доктора</a></li>
+            <li><a href="/doctor">Док</a></li>
 
-            <li><a href="/person">Пользователь</a></li>
-
-            <li><a href="#">test</a></li>
-
-            <li><a href="#">test</a></li>
+            <li><a href="/person">Поль</a></li>
 
 <?php
+
             if (isset($_SESSION['authorize']['id'])){
-                echo  '<li><a href="/account/out">Exit</a></li>';
+            echo '<li><a href="#">Записи на Прием</a></li>';
+            echo '<li><a href="#">Карты Пациентов</a></li>';
+            echo  '<li><a href="/account/out">Exit</a></li>';
             }
             else{
                 echo  '<li><a href="/account/login">Вход</a></li>';
