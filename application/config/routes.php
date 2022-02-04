@@ -40,6 +40,11 @@ return [
         'action' => 'cards',
     ],
 
+    'doctor/appoint' => [
+        'controller' => 'doctor',
+        'action' => 'appoint',
+    ],
+
     'user' => [
         'controller' => 'models',
         'action' => 'Users',
