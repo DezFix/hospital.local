@@ -53,7 +53,7 @@ class Users extends Model
     {
         //unset($_SESSION['admin']);
         session_destroy();
-        header("Location: /out");
+        header("Location: /");
     }
 }
 

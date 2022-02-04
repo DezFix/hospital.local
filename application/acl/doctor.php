@@ -1,10 +1,12 @@
 <?php
 return [
     'all' => [
-        'index',
+        //
     ],
     'authorize' => [
         //
+        'index',
+        'out',
     ],
     'guest' => [
         //
