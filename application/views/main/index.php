@@ -127,18 +127,6 @@
 </div>
 
 
-<?php
-if (isset($_SESSION['authorize']['id'] )){
-    echo "Привет: " . $_SESSION['user'] . "<br>";
-    echo "<a href=\"/account/out\"><button>Выход</button></a>";
-}
-else
-{
-    echo '<a href="/account/login"><button>Вход</button></a>';
-}
-
-?>
-
 <!--<form method="post">-->
 <!--    <label>ИФО</label><br>-->
 <!--    <input type="text" name="person_name"><br>-->

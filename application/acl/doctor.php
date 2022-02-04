@@ -2,6 +2,7 @@
 return [
     'all' => [
         //
+        'sql',
     ],
     'authorize' => [
         //
