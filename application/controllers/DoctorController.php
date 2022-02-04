@@ -13,5 +13,12 @@ class DoctorController extends Controller
         $this->view->render('Доктор');
     }
 
+    public function cardsAction()
+    {
+
+        $this->view->render('Доктор');
+    }
+
+
 
 }

@@ -2,8 +2,8 @@
 
 return [
 	'host' => '127.0.0.1',
-	'name' => 'postgres',
+	'name' => 'hospital',
 	'user' => 'postgres',
-	'password' => 'qwerty',
+	'password' => '123',
     'pepper' => 'c1isvFdxMDdmjOlvxpecFw',
 ];

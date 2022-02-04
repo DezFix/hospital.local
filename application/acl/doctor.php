@@ -7,6 +7,7 @@ return [
         //
         'index',
         'out',
+        'cards',
     ],
     'guest' => [
         //

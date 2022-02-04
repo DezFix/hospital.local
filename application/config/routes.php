@@ -35,6 +35,11 @@ return [
         'action' => 'index',
     ],
 
+    'doctor/cards' => [
+        'controller' => 'doctor',
+        'action' => 'cards',
+    ],
+
     'user' => [
         'controller' => 'models',
         'action' => 'Users',
