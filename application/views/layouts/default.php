@@ -22,7 +22,7 @@
 <?php
 
             if (isset($_SESSION['authorize']['id'])){
-            echo '<li><a href="#">Записи на Прием</a></li>';
+            echo '<li><a href="/doctor/appoint">Записи на Прием</a></li>';
             echo '<li><a href="#">Карты Пациентов</a></li>';
             echo  '<li><a href="../account/out">Exit</a></li>';
             }

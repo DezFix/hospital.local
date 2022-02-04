@@ -21,4 +21,12 @@ class DoctorController extends Controller
 
 
 
+    public function appointAction()
+    {
+
+        $this->view->render('Доктор');
+    }
+
+
+
 }

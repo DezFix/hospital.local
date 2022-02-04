@@ -4,6 +4,5 @@ CREATE TABLE Doctors (
 	FirstName varchar(255),
     LastName varchar(255),
 	Phone varchar(255),
-	Profession varchar(255),
 	Gender varchar(255)
 )
