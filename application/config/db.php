@@ -6,4 +6,5 @@ return [
 	'user' => 'postgres',
 	'password' => 'qwerty',
     'pepper' => 'c1isvFdxMDdmjOlvxpecFw',
+
 ];

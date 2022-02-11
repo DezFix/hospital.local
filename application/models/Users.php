@@ -32,12 +32,21 @@ class Users extends Model
             if (!empty($result[0]["login"])){
                 //$users = $result[0]["login"];
                 $pass = $result[0]["password"];
+                $acl = $result[0]["acl"];
                 $pwd_peppered2 = hash_hmac("sha256", $password, $pepper);
             if (password_verify($pwd_peppered2, $pass)) {
-                session_start();
-                $_SESSION['authorize']['id'] = $result[0]["id"];
-                $_SESSION['user'] = $result[0]["login"];
-                header("Location: /doctor");
+               // session_start();
+                if ($acl == "doctor") {
+                    $_SESSION['authorize']['id'] = $result[0]["id"];
+                    $_SESSION['user'] = $result[0]["login"];
+                    header("Location: /doctor/cards");
+                }
+                elseif ($acl == "admin"){
+                    $_SESSION['admin']['id'] = $result[0]["id"];
+                    $_SESSION['user'] = $result[0]["login"];
+                    header("Location: /sql");
+                }
+
                 exit;
             } else echo '<p>Логин или пароль неверны!</p>';
         }

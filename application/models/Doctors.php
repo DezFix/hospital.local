@@ -5,19 +5,46 @@ namespace application\models;
 use application\core\Model;
 use application\lib\Db;
 
-class Doctors extends Model {
+class Doctors extends Main {
 
-// {info doctor}  "names"   "id"                      (button) login out
-//                              patient list
-//    ___________________________________________________________________
-//    | person_name,Diagnosis,Phone,Address,dateofbirth,Gender,Status   |
-//    | person_name,Diagnosis,Phone,Address,dateofbirth,Gender,Status   |
-//    | person_name,Diagnosis,Phone,Address,dateofbirth,Gender,Status   |
-//    | person_name,Diagnosis,Phone,Address,dateofbirth,Gender,Status   |
-//    | person_name,Diagnosis,Phone,Address,dateofbirth,Gender,Status   |
-//    | person_name,Diagnosis,Phone,Address,dateofbirth,Gender,Status   |
-//    | person_name,Diagnosis,Phone,Address,dateofbirth,Gender,Status   |
-//    | person_name,Diagnosis,Phone,Address,dateofbirth,Gender,Status   |
-//    | person_name,Diagnosis,Phone,Address,dateofbirth,Gender,Status   |
-//    ___________________________________________________________________
+    public function getPersons($sql) {
+        $result = $this->row($sql);
+        return $result;
+    }
+
+    public function addPersons ($person_name,$Diagnosis,$Phone,$Address,$dateofbirth,$Gender,$Status,$IdDoctor){
+        var_dump($person_name);
+        $query = new Db();
+        $query->query("INSERT INTO Persons (
+                     \"person_name\",
+                     \"diagnosis\",
+                     \"phone\",
+                     \"address\",
+                     \"dateofbirth\",
+                     \"gender\",
+                     \"status\",
+                     \"id_doctor\"
+                     ) VALUES (
+                               '$person_name',
+                               '$Diagnosis',
+                               '$Phone',
+                               '$Address',
+                               '$dateofbirth',
+                               '$Gender',
+                               '$Status',
+                               '$IdDoctor'
+                               )");
+
+    }
+
+
+
+    public function delete ($delete)
+    {
+        $sql = "DELETE FROM appoint "
+            . "WHERE id = '$delete'";
+        $this->qwery($sql);
+    }
+
 }
+

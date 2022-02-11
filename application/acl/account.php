@@ -3,20 +3,19 @@
 return [
 	'all' => [
 		//
-        'sql',
+
 	],
 	'authorize' => [
 		//
         'out',
-        'sql',
+        'appoint',
 	],
 	'guest' => [
-		'register',
         'login',
-        'out',
-        'sql',
+
 	],
 	'admin' => [
 		//
+        'out',
 	],
 ];

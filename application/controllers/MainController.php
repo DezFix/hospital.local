@@ -9,19 +9,12 @@ class MainController extends Controller
 
     public function indexAction()
     {
-        $result = $this->model->getPersons();
-        $vars = [
-            'persons' => $result,
-        ];
-        $this->view->render('Главная страница', $vars);
+        $this->view->render('Главная страница');
     }
+
     public function sqlAction()
     {
-        $result = $this->model->getPersons();
-        $vars = [
-            'persons' => $result,
-        ];
-        $this->view->render('sql', $vars);
+        $this->view->render('sql');
     }
 
 }

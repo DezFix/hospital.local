@@ -7,6 +7,8 @@ use PDO;
 class Db {
 
     protected $db;
+    public $id;
+    public $error;
 
     public function __construct() {
         $config = require 'application/config/db.php';
@@ -20,8 +22,14 @@ class Db {
                 $stmt->bindValue(':'.$key, $val);
             }
         }
-//        echo "<h3>$stmt->queryString</h3>";
+
+
         $stmt->execute();
+
+        //echo "<h3>$this->db->lastInsertId()</h3>";
+
+
+        $this->error = $stmt->errorInfo();
         return $stmt;
     }
 
