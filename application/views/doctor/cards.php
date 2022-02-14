@@ -1,30 +1,31 @@
 <?php
 
 if (isset($_SESSION['authorize']['id'])){
-    echo "<h2>Здраствуйте:  " . $_SESSION['user'] . "</h2>";
+    echo "<h1>Здраствуйте:  " . $_SESSION['user'] . "</h1>";
 }
-?>
+?><br>
 <form method="post">
 
-    <h3>Добавить пациента</h3>
+    <h2>Добавить Пациента:</h2><br>
 
     <label>Имя Фамилия</label>
     <input name="person_name" type="text" required>
-    <label>diagnosis</label>
+    <label>Диагнос</label>
     <input name="diagnosis" type="text" required>
-    <label>phone</label>
+    <label>Телефон</label>
     <input name="phone" type="text" required>
-    <label>address</label>
+    <label>Адрес</label>
     <input name="address" type="text" required>
-    <label>dateofbirth</label>
+    <label>Дата Рождения</label>
     <input name="dateofbirth" type="text" required>
-    <label>gender</label>
+    <label>Пол</label>
     <input name="gender" type="text" required>
-    <label>status</label>
+    <label>Статус</label>
     <input name="status" type="text" required><br><br>
 
     <b><button name="createPerson" type="submit">Отправить</button></b>
-</form>
+</form><br>
+
 
 <?php
 
@@ -58,26 +59,55 @@ if (isset($_POST["createPerson"])){
 $person = $qwery->getPersons("SELECT * FROM public.persons WHERE id_doctor = $Id_Doctor");
 
 
-//    echo "Имя: " . $one["person_name"] . " - Диагноз: " . $one["diagnosis"] . "<br>";
-//}
 
-//
-//$appoint = $qwery->qwery("SELECT * FROM appoint INNER JOIN persons ON persons.phone = appoint.phone");
-//
-//
-//foreach ($appoint as $one){
-////    echo "Телефон" . $one["phone"] . " - Дата" . $one["date"] . " - Время" . $one["time"] . "<br>";
-//}
 ?>
+
+<form <form method="post">
+    <select name="id">
+        <?php
+        foreach ($person as $one){
+            echo "<option value='". $one["id"] ."'>" .  $one["id"] . "(". $one["person_name"] .")". "</option>";
+        }
+        ?>
+    </select>
+
+
+    <select name="fild">
+        <option value="person_name">Имя Фамилия</option>
+        <option value="diagnosis">Диагноз</option>
+        <option value="phone">Телефон</option>
+        <option value="address">Адрес</option>
+        <option value="dateofbirth">Дата Рождения</option>
+        <option value="gender">Пол</option>
+        <option value="status">Статус</option>
+               </select>
+
+
+<input type="text" name="info">
+    <b><button name="update_info" type="submit">Обновить</button></b>
+
+</form>
+
+<?php
+if (isset($_POST['update_info'])){
+    $query=new Doctors();
+    $query->update($_POST['fild'],$_POST['info'],$_POST['id']);
+//    $query->update("diagnosis", "2", "4");
+}
+?>
+
+
+
 <table class="bordered">
     <thead>
     <tr>
+        <th>ID</th>
         <th>Имя Фамилия</th>
-        <th>Диагнос</th>
         <th>Телефон</th>
         <th>Адресс</th>
         <th>Дата рождения</th>
         <th>Пол</th>
+        <th>Диагнос</th>
         <th>Статус</th>
 
     </tr>
@@ -85,12 +115,13 @@ $person = $qwery->getPersons("SELECT * FROM public.persons WHERE id_doctor = $Id
     <tbody>
     <?php foreach ($person as $one){ ?>
     <tr>
+        <td> <?php echo $one["id"] ?> </td>
         <td> <?php echo $one["person_name"] ?> </td>
-        <td> <?php echo $one["diagnosis"] ?> </td>
         <td> <?php echo $one["phone"] ?> </td>
         <td> <?php echo $one["address"] ?> </td>
         <td> <?php echo $one["dateofbirth"] ?> </td>
         <td> <?php echo $one["gender"] ?> </td>
+        <td> <?php echo $one["diagnosis"] ?> </td>
         <td> <?php echo $one["status"] ?> </td>
 
     </tr>

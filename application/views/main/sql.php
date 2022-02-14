@@ -63,19 +63,6 @@ require_once("application/migration/drop_table.php");
 </div>
 
 
-    <div class="col">
-        <form method="post">
-
-            <label>Выбрать:</label>
-
-            <b><button type="submit">Удалить</button></b>
-
-            <input name="delete" value=" <?php echo $delete;?> ">
-            <input type="submit">
-        </form>
-    </div>
-
-
 <?php
 use application\models\Main;
 $qwery = new Main();

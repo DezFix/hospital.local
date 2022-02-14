@@ -37,12 +37,18 @@ class Doctors extends Main {
 
     }
 
-
-
     public function delete ($delete)
     {
-        $sql = "DELETE FROM appoint "
-            . "WHERE id = '$delete'";
+        $sql = "DELETE FROM appoint WHERE id = '$delete'";
+
+        $this->qwery($sql);
+    }
+
+    public function update ($doc_who, $update, $doc_id)
+    {
+
+        $sql = "UPDATE persons set $doc_who = '$update' where id = '$doc_id'" ;
+
         $this->qwery($sql);
     }
 
