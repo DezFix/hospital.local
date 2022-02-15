@@ -77,14 +77,14 @@ if(isset($_POST["select_sql"])){
     $qwery->qwery($_POST['select_sql']);
 }
 
-if(isset($_POST["createDoctor"])){
+if(isset($_POST["createDoctor"])) {
     $firstname = $_POST["firstname"];
     $lastname = $_POST["lastname"];
     $phone = $_POST["phone"];
     $profession = $_POST["profession"];
     $gender = $_POST["gender"];
 
-   $qwery->qweryLastId("INSERT INTO doctors
+    $qwery->qweryLastId("INSERT INTO doctors
     (firstname, lastname, phone, profession, gender, id_doctor) 
     VALUES 
     ('$firstname',
@@ -95,18 +95,40 @@ if(isset($_POST["createDoctor"])){
      ");
 
 
-
     $login = $_POST["doc_login"];
     $password = $_POST["doc_password"];
-    $doctorid =  $qwery->id;
+    $doctorid = $qwery->id;
 
     $config = require 'application/config/db.php';
     $pepper = $config['pepper'];
 
     $pwd_peppered = hash_hmac("sha256", $password, $pepper);
-    $pwd_hashed = password_hash($pwd_peppered,  PASSWORD_DEFAULT);
+    $pwd_hashed = password_hash($pwd_peppered, PASSWORD_DEFAULT);
     $qwery->query("insert into users (login,password, doctorid, acl)values('$login','$pwd_hashed','$doctorid','doctor')");
-
-
-
 }
+    $diagnosis = array("Фарингіт", "Бронхіт", "Гастрит", "Хронічний стрес", "Хронічний артрит");
+    $rand_keys = array_rand($diagnosis, 2);
+
+    //if (!empty($_POST["random"])) {
+        $api = file_get_contents('https://api.namefake.com/ukrainian-ukraine');
+        $data = json_decode($api, true);
+
+
+
+            echo "ПІБ: " . $data['name'] . "<br>";
+            echo "Адреса: " . $data['address'] . "<br>";
+            echo "Телефон: " . $data['phone_w'] . "<br>";
+            echo "Диагноз: " . $diagnosis[$rand_keys[0]] . "<br>";
+            echo "Дата нарождення: " . $data['birth_data'] . "<br>";
+            $gender = preg_replace('/\d/', '', $data['pict']);
+            echo "Стать: " . $gender . "<br>";
+            echo "На лікуванні" . "+" . "<br>";
+            echo "ID доктора" . 1 . "<br>";
+
+    //    }
+
+?>
+
+
+
+<b><button type="submit" name="random">Сюда!</button></b>

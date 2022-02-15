@@ -24,9 +24,11 @@
     if (isset($_POST["phone"])){
         $qwery = new Main();
         $phone = $_POST["phone"];
-        $app = $qwery->row("SELECT * FROM public.appoint WHERE phone = '$phone'");
-        foreach ($app as $appoint){
-            echo "<h2>Ваш прием назначено на " . $appoint["date"] . " - " . $appoint["time"] . "</h2>";
+
+        $appoint = $qwery->qwery("SELECT appoint.id, appoint.date, appoint.time, persons.person_name, persons.phone FROM persons INNER JOIN appoint ON persons.phone = appoint.phone WHERE appoint.phone = '$phone'");
+        foreach ($appoint as $app){
+            echo "<h2>Добрый день," . $app["person_name"] . "</h2>";
+            echo "<h2>Ваш прием назначено на " . $app["date"] . " - " . $app["time"] . "</h2>";
         }
     }
 

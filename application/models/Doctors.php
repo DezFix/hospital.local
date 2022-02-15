@@ -50,6 +50,7 @@ class Doctors extends Main {
         $sql = "UPDATE persons set $doc_who = '$update' where id = '$doc_id'" ;
 
         $this->qwery($sql);
+        header("Location: /doctor/cards");
     }
 
 }
